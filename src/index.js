@@ -4,9 +4,22 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import userReducer from './Features/user'
+import { configureStore } from '@reduxjs/toolkit'
+import { Provider } from 'react-redux'
+
+const store = configureStore({
+  reducer: {
+    user : userReducer
+  }
+})
+
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
